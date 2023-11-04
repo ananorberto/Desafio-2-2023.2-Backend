@@ -1,0 +1,21 @@
+-- Consulta A
+SELECT V.*
+FROM VEICULO V
+WHERE V.FK_PROPRIETARIO_cpf = '12345678901';
+
+-- Consulta B
+SELECT *
+FROM PROPRIETARIO
+WHERE nome LIKE '%Beatriz%';
+
+-- Consulta C
+SELECT I.*, V.*
+FROM INFRACAO I
+    INNER JOIN VEICULO V ON I.FK_VEICULO_placa = V.placa
+WHERE I.data BETWEEN '2023-05-01' AND '2023-07-20';
+
+-- Consulta D
+SELECT V.modelo AS Modelo, COUNT(*) AS NumeroDeVeiculos
+FROM VEICULO V
+GROUP BY V.modelo
+ORDER BY NumeroDeVeiculos DESC;
